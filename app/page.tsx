@@ -3,6 +3,37 @@ import { MY_HANDLE } from "@/config/site";
 
 const START_YEAR = 2023;
 
+const works = [
+  {
+    title: "Efferd",
+    tagline: "leatest one",
+    description:
+      "A collection of components/blocks build using shadcn/ui for building modern web applications.",
+    url: "https://ui.efferd.com",
+  },
+  {
+    title: "Ambassador at 21st Dev",
+    tagline: "joind in Fed 2025",
+    description:
+      "I am an ambassador at 21st.dev. I contribute to the community by sharing my components and knowledge with others.",
+    url: `https://21st.dev/community/${MY_HANDLE}`,
+  },
+  {
+    title: "Ilhaf",
+    tagline: "acquired",
+    description:
+      "Ilhaf is an online diary for reciters. where reciters can find all the content they need to recite.",
+    url: "https://ilhaf.com",
+  },
+  {
+    title: "Shhaz",
+    tagline: "built when I was 15",
+    description:
+      "shhaz.com - Explore millions of names with their origin, meaning, gender, pronunciation, lucky number, and more.",
+    url: "https://shhaz.com",
+  },
+];
+
 export default function Home() {
   const birthDate = new Date("2007-02-09");
   const today = new Date();
@@ -40,32 +71,27 @@ export default function Home() {
         <h2 className="font-heading font-medium tracking-tight">Works</h2>
       </div>
       <div className="cpx flex-1 space-y-4 py-12">
-        <Link
-          className="flex w-full flex-col rounded-md border border-dashed p-4 hover:bg-accent dark:hover:bg-accent/60"
-          href="https://ui.efferd.com"
-          target="_blank"
-        >
-          <h3 className="font-heading font-medium text-base tracking-tight">
-            Efferd UI
-          </h3>
-          <p className="text-muted-foreground text-sm leading-relaxed">
-            A collection of components/blocks build using shadcn/ui for building
-            modern web applications.
-          </p>
-        </Link>
-        <Link
-          className="flex w-full flex-col rounded-md border border-dashed p-4 hover:bg-accent dark:hover:bg-accent/60"
-          href={`https://21st.dev/community/${MY_HANDLE}`}
-          target="_blank"
-        >
-          <h3 className="font-heading font-medium text-base tracking-tight">
-            Ambassador at 21st.dev
-          </h3>
-          <p className="text-muted-foreground text-sm leading-relaxed">
-            I am an ambassador at 21st.dev. I contribute to the community by
-            sharing my components and knowledge with others.
-          </p>
-        </Link>
+        {works.map((work) => (
+          <Link
+            className="relative flex w-full flex-col gap-2 rounded-md border border-dashed p-4 hover:bg-accent dark:hover:bg-accent/60"
+            href={work.url}
+            key={work.title}
+            target="_blank"
+          >
+            <div className="flex w-full items-center justify-between">
+              <h3 className="font-heading font-medium text-lg tracking-wider">
+                {work.title}
+              </h3>
+              <p className="text-muted-foreground text-xs leading-relaxed">
+                ( {work.tagline})
+              </p>
+            </div>
+
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              {work.description}
+            </p>
+          </Link>
+        ))}
       </div>
       <div className="cpx border-y border-dashed py-2">
         <h2 className="font-heading font-medium tracking-tight">Contact</h2>
@@ -106,6 +132,17 @@ export default function Home() {
             schedule a quick call
           </a>{" "}
           with me on Cal.com.
+        </p>
+        <p>
+          you can also Follow me on{" "}
+          <a
+            className="text-primary hover:underline"
+            href={`https://www.youtube.com/@${MY_HANDLE}`}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            YouTube
+          </a>
         </p>
       </div>
     </div>
