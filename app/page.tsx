@@ -6,7 +6,7 @@ const START_YEAR = 2023;
 const works = [
   {
     title: "Efferd",
-    tagline: "leatest one",
+    tagline: "latest one",
     description:
       "A collection of components/blocks build using shadcn/ui for building modern web applications.",
     url: "https://ui.efferd.com",
