@@ -172,8 +172,13 @@
   .no-scrollbar {
     -ms-overflow-style: none;
     /* IE and Edge */
-    scrollbar-width: none;
-    /* Firefox */
+  }
+
+  @supports (scrollbar-width: none) {
+    .no-scrollbar {
+      scrollbar-width: none;
+      /* Firefox */
+    }
   }
   .site-container {
     @apply mx-auto w-full max-w-2xl;

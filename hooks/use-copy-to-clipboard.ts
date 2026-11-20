@@ -2,10 +2,10 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 
-type UseCopyToClipboardReturn = {
+interface UseCopyToClipboardReturn {
   copied: boolean;
   copy: (text: string) => Promise<boolean>;
-};
+}
 
 // Fallback to old browsers
 function fallbackCopy(str: string): boolean {
@@ -33,9 +33,7 @@ function fallbackCopy(str: string): boolean {
   return success;
 }
 
-export function useCopyToClipboard(
-  duration: number = 1500
-): UseCopyToClipboardReturn {
+export function useCopyToClipboard(duration = 1500): UseCopyToClipboardReturn {
   const [copied, setCopied] = useState<boolean>(false);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -44,7 +42,7 @@ export function useCopyToClipboard(
       try {
         let success = false;
 
-        if (navigator.clipboard && navigator.clipboard.writeText) {
+        if (navigator.clipboard?.writeText) {
           await navigator.clipboard.writeText(text);
           success = true;
         } else {
@@ -53,12 +51,13 @@ export function useCopyToClipboard(
 
         if (success) {
           setCopied(true);
-          if (timeoutRef.current) clearTimeout(timeoutRef.current);
+          if (timeoutRef.current) {
+            clearTimeout(timeoutRef.current);
+          }
           timeoutRef.current = setTimeout(() => setCopied(false), duration);
           return true;
-        } else {
-          throw new Error("Copy command failed");
         }
+        throw new Error("Copy command failed");
       } catch (err: unknown) {
         console.error("Failed to copy text: ", err);
         return false;
@@ -67,13 +66,14 @@ export function useCopyToClipboard(
     [duration]
   );
 
-  useEffect(() => {
-    return () => {
+  useEffect(
+    () => () => {
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
       }
-    };
-  }, []);
+    },
+    []
+  );
 
   return {
     copied,

@@ -13,7 +13,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en">
       <body
-        className={`${fontSans.variable} ${fontHeading.variable} ${fontMono.variable} overscroll-none bg-background font-sans text-foreground antialiased`}
+        className={`${fontSans.variable} ${fontHeading.variable} ${fontMono.variable} bg-background text-foreground overscroll-none font-sans antialiased`}
       >
         <RootProviders
           themeProps={{
@@ -25,8 +25,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <main
             className={cn(
               "site-container relative grow",
-              "before:-inset-y-20 before:-left-px before:absolute before:z-1 before:border-border before:border-dashed md:before:border-l",
-              "after:-inset-y-20 after:-right-px after:absolute after:z-1 after:border-border after:border-dashed md:after:border-r"
+              "before:border-border before:absolute before:-inset-y-20 before:-left-px before:z-1 before:border-dashed md:before:border-l",
+              "after:border-border after:absolute after:-inset-y-20 after:-right-px after:z-1 after:border-dashed md:after:border-r"
             )}
           >
             {children}

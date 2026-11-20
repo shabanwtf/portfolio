@@ -7,18 +7,18 @@ import {
   SITE_SHORT_DESCRIPTION,
 } from "@/config/site";
 
-type ConstructMetadataProps = {
-  title?: string;
-  fullTitle?: string;
-  description?: string;
-  image?: string | null;
-  video?: string | null;
-  url?: string;
+interface ConstructMetadataProps {
   canonicalUrl?: string;
-  noIndex?: boolean;
-  manifest?: string | URL | null;
+  description?: string;
+  fullTitle?: string;
+  image?: string | null;
   keywords?: string[];
-};
+  manifest?: string | URL | null;
+  noIndex?: boolean;
+  title?: string;
+  url?: string;
+  video?: string | null;
+}
 
 export function constructMetadata({
   title,

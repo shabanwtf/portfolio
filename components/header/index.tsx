@@ -31,7 +31,7 @@ export function SiteHeader() {
             }
       }
       className={cn(
-        "sticky top-0 z-1 mx-auto w-full max-w-2xl border-b border-dashed bg-background/95 backdrop-blur-lg supports-[backdrop-filter]:bg-background/50",
+        "bg-background/95 supports-[backdrop-filter]:bg-background/50 sticky top-0 z-1 mx-auto w-full max-w-2xl border-b border-dashed backdrop-blur-lg",
         scrolled && !isMobile && "border"
       )}
       initial={false}
@@ -44,7 +44,7 @@ export function SiteHeader() {
     >
       <div className="flex items-center justify-between">
         <Link
-          className="cursor-pointer rounded-full p-2 hover:bg-accent"
+          className="hover:bg-accent cursor-pointer rounded-full p-2"
           href="/"
         >
           <WordmarkIcon className="h-4" />

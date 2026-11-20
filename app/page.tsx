@@ -73,13 +73,13 @@ export default function Home() {
       <div className="cpx flex-1 space-y-4 py-12">
         {works.map((work) => (
           <Link
-            className="relative flex w-full flex-col gap-2 rounded-md border border-dashed p-4 hover:bg-accent dark:hover:bg-accent/60"
+            className="hover:bg-accent dark:hover:bg-accent/60 relative flex w-full flex-col gap-2 rounded-md border border-dashed p-4"
             href={work.url}
             key={work.title}
             target="_blank"
           >
             <div className="flex w-full items-center justify-between">
-              <h3 className="font-heading font-medium text-lg tracking-wider">
+              <h3 className="font-heading text-lg font-medium tracking-wider">
                 {work.title}
               </h3>
               <p className="text-muted-foreground text-xs leading-relaxed">
@@ -96,7 +96,7 @@ export default function Home() {
       <div className="cpx border-y border-dashed py-2">
         <h2 className="font-heading font-medium tracking-tight">Contact</h2>
       </div>
-      <div className="cpx flex-1 space-y-4 py-12 text-muted-foreground leading-relaxed">
+      <div className="cpx text-muted-foreground flex-1 space-y-4 py-12 leading-relaxed">
         <p>
           You can reach me via email at{" "}
           <a
