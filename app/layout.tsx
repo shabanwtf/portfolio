@@ -1,5 +1,4 @@
 import "./globals.css";
-import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
 import { RootProviders } from "@/components/providers";
 import { fontHeading, fontMono, fontSans } from "@/lib/fonts";
@@ -35,7 +34,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </RootProviders>
         <Analytics />
       </body>
-      <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS as string} />
     </html>
   );
 }
